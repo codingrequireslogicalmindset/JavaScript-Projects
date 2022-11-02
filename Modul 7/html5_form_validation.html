@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Form Validation</title>
+</head>
+
+<body>
+    <form onsubmit="meineFunktion(); return false;">
+        <input id="name" pattern="[A-Za-z]+" required minlength="2" type="text" placeholder="Bitte Namen eingeben">
+        <input id="email" required type="email" placeholder="Bitte E-Mail eingeben">
+        <input id="myNumber" required type="number" min="10" placeholder="Bitte Zahl eingeben">
+        <button>Absenden</button>
+    </form>
+
+    <script>
+        function meineFunktion() {
+            console.log('Hallo Welt!');
+        }
+    </script>
+</body>
+
+</html>

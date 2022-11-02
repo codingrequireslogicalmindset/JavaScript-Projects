@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto+Serif:opsz@8..144&display=swap"rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comic+Neue&family=Montserrat&family=Raleway:wght@700&family=Roboto+Serif:opsz@8..144&display=swap"
+        rel="stylesheet">
+    <title>Instagram</title>
+</head>
+
+<body onload="renderPosts(); showSuggestions()">
+    <header>
+        <div class="header_logo">
+            <img src="./img/instagram.png" class="logo">
+            <img class="arrow_logo" src="./img/arrow_down.png">
+        </div>
+        <input type="text" class="search" id="searchBar" onfocus="searchBarFocusStart()" onblur="searchBarFocusEnd()"
+            placeholder="Suchen">
+        <div class="icons_header">
+            <img class="img_icons" src="./img/home_icon.png">
+            <img class="img_icons" src="./img/send_icon.png">
+            <img class="img_icons" src="./img/more.png">
+            <img class="img_icons" src="./img/compass_icon.png">
+            <img class="img_icons" src="./img/heart_icon.png">
+            <img class="img_icons_profile" src="./img/profile_icon.jpg">
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="post_content" id="postcontainer"></div>
+
+        <div class="profile_content">
+            <div class="profile_box">
+                <div class="profile">
+                    <img class="profile_img" src="./img/profile_icon.jpg">
+                    <div class="profile_setting">
+                        <div class="profile_account">
+                        <span class=""><b>milchreisrockt</b></span>
+                        <span class="full_name">Christian Axtmann</span>
+                        </div>
+                        <p class="profile_link_login">Wechseln</p>
+                    </div>
+                </div>  
+            </div>
+            <div class="suggest">
+                <span class="suggest_recommendations">Vorschläge für dich</span><br>
+                <span class="suggest_show"><b>Alle ansehen</b></span>
+            </div>
+            <div id="suggestions"></div>
+        </div>
+    </div>
+    <footer></footer>
+</body>
+
+</html>

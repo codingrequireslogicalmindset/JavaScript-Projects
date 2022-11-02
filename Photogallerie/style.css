@@ -1,0 +1,91 @@
+.bg_img {
+    object-fit: cover;
+    height: 150px;
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+body {
+    margin: 0;
+    background-color: lightgray;
+    font-family: 'Rubik Marker Hatch', cursive;
+}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+    color: rgba(34 18 59 / 0.65);
+}
+
+.imgcontainer {
+    background-color: rgba(34 18 59 / 0.65);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.imgbox {
+    height: 150px;
+    width: 200px;
+    margin: 15px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    object-fit: cover;
+}
+
+.imgbox:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+    border: 2px solid white;
+    transition: ease-in-out 150ms;
+}
+
+.img_fullscreen {
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    height: 80%;
+}
+
+.fullscreen {
+    background-color: black;
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.arrows {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    bottom: 8px;
+}
+
+.signs {
+    width: 50px;
+    cursor: pointer;
+    margin-right: 16px;
+    margin-left: 16px;
+}
+
+.close_window {
+    width: 35px;
+    position: fixed;
+    cursor: pointer;
+    margin-right: 16px;
+    margin-top: 16px;
+    top: 0;
+    right: 0;
+}
+
+footer {
+    height: 50px;
+    text-align: center;
+    margin-top: 25px;
+}

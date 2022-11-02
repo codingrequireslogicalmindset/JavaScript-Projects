@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Button</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        img {
+            width: 100vw;
+            height: 97vh;
+            object-fit: cover;
+        }
+
+        input {
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        let images = ['./img/montevideo.jpg', './img/buenos_aires.jpg', './img/valparaiso.jpg']
+        let currentImage = 0;
+
+
+        function start() {
+            let milliseconds = +document.getElementById('input').value * 1000;
+            if (milliseconds > 10000) {
+                alert('Type in not more than 10 seconds!');
+            } else {
+                if (milliseconds < 1000) {
+                    alert('Type in at least 1 second!');
+                } else { // Start Diashow!
+                    showImage(currentImage);
+                    currentImage++;
+
+                    if (currentImage == 3) {
+                        currentImage = 0;
+                    }
+
+                    setTimeout(start, milliseconds);
+                }
+            }
+        }
+
+        function showImage(i) {
+            document.getElementById('image').src = images[i]
+        }
+
+    </script>
+</head>
+
+<body>
+    <input id="input" type="number" placeholder="How many seconds last?"><button onclick="start()">Start!</button>
+    <img id="image" src="./img/montevideo.jpg" alt="Montevideo">
+</body>
+
+</html>

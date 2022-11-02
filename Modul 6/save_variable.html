@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save Variable</title>
+    <style>
+        input {
+            text-align: center;
+        }
+    </style>
+    <script>
+
+        let names = [];
+
+        // 2.Schritt: Neu laden und dann Button 'Who was here last time?' drücken!
+        function loadName() {
+            names = getArray('names');
+            document.getElementById('headline').innerHTML = `Last time was ${names} here!`;
+        }
+        // 1. Schritt: Button 'Add name!' drücken!
+        function saveName() {
+            let name = document.getElementById('input').value;
+            names.push(name);
+            setArray('names', names);
+            document.getElementById('headline').innerHTML = `Hello ${names}!`;
+            document.getElementById('input').value = '';
+        }
+        // 1.Schritt: setArray verwandelt Array in Text, damit es in localStorage gespeichert werden kann!
+        function setArray(key, array) {
+            localStorage.setItem(key, JSON.stringify(array));
+        }
+        // 3. Schritt: getArray('names') stellt Array in Textform wieder in ursprünglichem Zustand her!
+        function getArray(key) {
+            return JSON.parse(localStorage.getItem(key));
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1 id="headline"></h1>
+    
+    2. Schritt:
+    <button onclick="loadName()">Who was here last time?</button>
+    
+    <input id="input" type="text" placeholder="Add name!">
+    
+    1. Schritt:
+    <button onclick="saveName()">Add name!</button> 
+
+</body>
+</head>
