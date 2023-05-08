@@ -120,7 +120,7 @@ function renderNewNoteTemplate() {
     return /*html*/`
     <div class="header">
     <img src="./img/mindmap.png">
-    <span class="headline"><b>Notizbuch</b></span>
+    <span class="headline"><b>Notebook</b></span>
     <img src="./img/cafe.png">
     </div>`;
 }
