@@ -1,4 +1,32 @@
-let titles = [];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: script.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: script.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>let titles = [];
 let notes = [];
 let titlesTrash = [];
 let notesTrash = [];
@@ -8,7 +36,7 @@ function render() {
     content.innerHTML = '';
     content.innerHTML += renderNewNoteTemplate();
     content.innerHTML += renderOnclickTemplate();
-    for (let i = 0; i < titles.length; i++) {
+    for (let i = 0; i &lt; titles.length; i++) {
         const title = titles[i];
         const note = notes[i];
         document.getElementById('msgSection').innerHTML += renderNotesTemplate(title, note, i);
@@ -35,7 +63,7 @@ function deleteBox() {
 
 function trash() {
     document.getElementById('msgSection').innerHTML = '';
-    for (let i = 0; i < titlesTrash.length; i++) {
+    for (let i = 0; i &lt; titlesTrash.length; i++) {
         if (titlesTrash[i] == 0) {
             document.getElementById('msgSection').innerHTML = '';
         }
@@ -100,7 +128,7 @@ function load() {
     let titlesAsText = localStorage.getItem('titles');
     let notesAsText = localStorage.getItem('notes');
 
-    if (titlesAsText && notesAsText) {
+    if (titlesAsText &amp;&amp; notesAsText) {
         titles = JSON.parse(titlesAsText);
         notes = JSON.parse(notesAsText);
     }
@@ -108,7 +136,7 @@ function load() {
     let titlesTrashAsText = localStorage.getItem('titlesTrash');
     let notesTrashAsText = localStorage.getItem('notesTrash');
 
-    if (titlesTrashAsText && notesTrashAsText) {
+    if (titlesTrashAsText &amp;&amp; notesTrashAsText) {
 
         titlesTrash = JSON.parse(titlesTrashAsText);
         notesTrash = JSON.parse(notesTrashAsText);
@@ -118,60 +146,82 @@ function load() {
 
 function renderNewNoteTemplate() {
     return /*html*/`
-    <div class="header">
-    <img src="./img/mindmap.png">
-    <span class="headline"><b>Notizbuch</b></span>
-    <img src="./img/cafe.png">
-    </div>`;
+    &lt;div class="header">
+    &lt;img src="./img/mindmap.png">
+    &lt;span class="headline">&lt;b>Notebook&lt;/b>&lt;/span>
+    &lt;img src="./img/cafe.png">
+    &lt;/div>`;
 }
 
 function renderOnclickTemplate() {
     return /*html*/`
-    <div class="navBar">
-    <img src="./img/home.png" onclick="render()">
-    <img src="./img/trash.png" onclick="trash()">
-    </div>
-    <div class="postbox" id="postbox">
-    <input placeholder="Title (max. 30 characters!)" maxlength="30" id="title">
-    <textarea placeholder="Take a note..." id="note"></textarea>
-    <div class="addNote">
-    <img src="./img/close.png" onclick="deleteBox()">
-    <img src="./img/msg.png" onclick="addPost()">
-    </div>
-    </div>
-    <div class="msgSection" id="msgSection">
-    </div>
-    <div class="footer">
-    <span>Copyright © Christian Axtmann, 2022</span>
-    </div>
+    &lt;div class="navBar">
+    &lt;img src="./img/home.png" onclick="render()">
+    &lt;img src="./img/trash.png" onclick="trash()">
+    &lt;/div>
+    &lt;div class="postbox" id="postbox">
+    &lt;input placeholder="Title (max. 30 characters!)" maxlength="30" id="title">
+    &lt;textarea placeholder="Take a note..." id="note">&lt;/textarea>
+    &lt;div class="addNote">
+    &lt;img src="./img/close.png" onclick="deleteBox()">
+    &lt;img src="./img/msg.png" onclick="addPost()">
+    &lt;/div>
+    &lt;/div>
+    &lt;div class="msgSection" id="msgSection">
+    &lt;/div>
+    &lt;div class="footer">
+    &lt;span>Copyright © Christian Axtmann, 2022&lt;/span>
+    &lt;/div>
     `;
 }
 
 function renderNotesTemplate(title, note, i) {
     return /*html*/`
-    <div class="msgbox" id="msgbox">
-    <b>${title}</b><p class="whiteSpace">${note}</p>
-    <a href="#">
-    <img class="trashIcon" src="./img/trash.png" onclick="deletePost(${i})">
-    </a>
-    </div>`;
+    &lt;div class="msgbox" id="msgbox">
+    &lt;b>${title}&lt;/b>&lt;p class="whiteSpace">${note}&lt;/p>
+    &lt;a href="#">
+    &lt;img class="trashIcon" src="./img/trash.png" onclick="deletePost(${i})">
+    &lt;/a>
+    &lt;/div>`;
 }
 
 function trashTemplate(titlesTrash, notesTrash, i) {
     return /*html*/`
-    <div class="msgbox">
-    <b>${titlesTrash[i]}</b><p class="whiteSpace">${notesTrash[i]}</p>
-    <a href="#">
-    <img class="trashIcon" src="./img/reuse.png" onclick="reuse(${i})">
-    </a>
-    </div>`;
+    &lt;div class="msgbox">
+    &lt;b>${titlesTrash[i]}&lt;/b>&lt;p class="whiteSpace">${notesTrash[i]}&lt;/p>
+    &lt;a href="#">
+    &lt;img class="trashIcon" src="./img/reuse.png" onclick="reuse(${i})">
+    &lt;/a>
+    &lt;/div>`;
 }
 
 function trashEmptyTemplate() {
     return /*html*/`
-    <b>Trash</b>
-    <div class="emptyTrash">
-    <img src="./img/trash.png" onclick="deleteTrash()">
+    &lt;b>Trash&lt;/b>
+    &lt;div class="emptyTrash">
+    &lt;img src="./img/trash.png" onclick="deleteTrash()">
     emptying!
-    </div>`;
-}
+    &lt;/div>`;
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#deletePost">deletePost</a></li><li><a href="global.html#deleteTrash">deleteTrash</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Fri Nov 25 2022 14:07:26 GMT+0100 (Mitteleuropäische Normalzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
